@@ -1,0 +1,38 @@
+﻿@model List<DemoClass.Contracts.Student.StudentResponse>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            color: #8B868D;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 22px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #684C72;">List Student</h1>
+    <table>
+        <tr>
+            <th>Student Name </th>
+            <th>Student Age </th>
+            <th>Class Name </th>
+        </tr>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@data.StudentName</td>
+                <td>@data.Age</td>
+                <td>@data.Class.ClassName</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

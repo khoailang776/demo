@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using DemoClass.Config;
+﻿using DemoClass.Config;
 using DemoClass.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using Wkhtmltopdf.NetCore;
 
 namespace DemoClass
 {
@@ -30,6 +28,7 @@ namespace DemoClass
             services.AddEntityFrameworkNpgsql().AddDbContext<ClassRoomDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ClassRoomDbConnectionString")));
             DependencyInjection.Configure(services);
             AutoMapperConfig.Configure();
+            services.AddWkhtmltopdf();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
